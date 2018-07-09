@@ -24,11 +24,13 @@ app.post('/auth',  (req, res) => {
    if("wasif" === userName && "hello4040" === password)
 {
   let token = jwt.sign({
+sub : 1,
+username : "admin",
+  }, "helldeop", {expiresIn:"5 minutes", audience:"demo" });
 
-
-  })
-
-    res.send(`you're now loged in`)
+    res.send({
+   access_token:token
+    })
 
 }
 else {
